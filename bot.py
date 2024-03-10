@@ -3,18 +3,18 @@ import sqlite3
 from telebot import types
 from telebot.types import WebAppInfo
 
-bot = telebot.TeleBot('6397644079:AAGJmkwjUSp4HfPVb-ZjHdScfaHOqzdLKLs')
-conn = sqlite3.connect("C:/BasesForBOTS/bot.db", check_same_thread=False)
+bot = telebot.TeleBot('7130265096:AAEeGevULaLUOZdB2egrOQTkd8TJQ8HaGIs')
+conn = sqlite3.connect("C:/BasesForBOTS/botkurs.db", check_same_thread=False)
 cur = conn.cursor()
 
-web_app=WebAppInfo(url="https://anananastejsi.github.io/first/")
+web_app=WebAppInfo(url="https://anananastejsi.github.io/specialist/")
 
 
 @bot.message_handler(content_types=['text'])
 def start(message):
     if message.text == '/start':
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        btn_app = types.KeyboardButton('Языки', web_app=web_app)
+        btn_app = types.KeyboardButton('Специалисты', web_app=web_app)
         markup.add(btn_app)
         bot.send_message(message.from_user.id, 'УЗНАТЬ!', reply_markup=markup)
 
